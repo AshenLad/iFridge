@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>智能冰箱管理系统</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif; /* 设置字体 */
+            background-color: #f4f4f9; /* 背景颜色 */
+            margin: 0;
+            padding: 0;
+            color: #333; /* 字体颜色 */
+            display: flex;
+        }
+        nav {
+            background-color: #333; /* 导航栏背景颜色 */
+            width: 200px; /* 导航栏宽度 */
+            height: 100vh; /* 导航栏高度，视窗的高度 */
+            padding: 20px;
+        }
+        nav a {
+            text-decoration: none; /* 去除链接下划线 */
+            color: white; /* 链接文字颜色 */
+            display: block;
+            padding: 10px;
+            margin: 5px 0; /* 链接之间的间隔 */
+        }
+        nav a:hover {
+            background-color: #555; /* 鼠标悬停时的背景色 */
+        }
+        .content {
+            flex-grow: 1;
+            padding: 20px;
+        }
+        h1 {
+            color: #444;
+            text-align: center; /* 标题居中 */
+        }
+        table {
+            width: 100%; /* 表格宽度 */
+            border-collapse: collapse; /* 边框合并 */
+            box-shadow: 0 0 10px rgba(0,0,0,0.1); /* 添加阴影效果 */
+        }
+        th, td {
+            border: 1px solid #ddd; /* 单元格边框颜色 */
+            padding: 12px 15px; /* 单元格内边距 */
+            text-align: left; /* 文本对齐方式 */
+        }
+        th {
+            background-color: #4CAF50; /* 表头背景颜色 */
+            color: white; /* 表头文字颜色 */
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2; /* 交替行颜色 */
+        }
+        img {
+            width: 100px; /* 图片宽度 */
+            height: auto;
+            display: block;
+            margin-left: auto;
+            margin-right: auto; /* 图片居中显示 */
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/table1">库存食物信息</a>
+        <a href="/device">设备信息</a>
+{#        <a href="/about">About Us</a>#}
+    </nav>
+    <div class="content">
+        <h1>库存食物信息</h1>
+        <table>
+            <tr>
+                <th>id</th>
+                <th>name</th>
+                <th>class</th>
+                <th>image</th>
+                <th>QR</th>
+                <th>create_time</th>
+                <th>update_time</th>
+            </tr>
+            {% for row in data %}
+            <tr>
+                <td>{{ row[0] }}</td>
+                <td>{{ row[1] }}</td>
+                <td>{{ row[2] }}</td>
+                <td><img src="{{ row[3] }}" alt="Image description here"></td>
+                <td><img src="{{ row[4] }}" alt="QR code description here"></td>
+                <td>{{ row[5] }}</td>
+                <td>{{ row[6] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>
