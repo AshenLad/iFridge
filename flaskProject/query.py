@@ -4,9 +4,9 @@ class Database():
     
     def __init__(self) -> None:
         # 数据库连接参数
-        self.host = '39.106.32.166'
+        self.host = '00.00.00.00'
         self.user = 'root'
-        self.password = 'Hd19971206@'
+        self.password = '*******'
         self.database = 'bingxiang'
         self.connection = pymysql.connect(host=self.host, user=self.user, password=self.password, database=self.database)
     
